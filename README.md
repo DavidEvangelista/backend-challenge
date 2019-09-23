@@ -1,53 +1,106 @@
-# Invillia recruitment challenge
+# backendchallenge
 
-[![Build Status](https://travis-ci.org/shelsonjava/invillia.svg?branch=master)](https://travis-ci.org/shelsonjava/invillia)
+This application was generated using JHipster 6.2.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.2.0](https://www.jhipster.tech/documentation-archive/v6.2.0).
 
-![Invillia Logo](https://invillia.com/public/assets/img/logo-invillia.svg)
-[Invillia](https://https://www.invillia.com/) - A transformação começa aqui.
+This is a "microservice" application intended to be part of a microservice architecture, please refer to the [Doing microservices with JHipster][] page of the documentation for more information.
 
-The ACME company is migrating their monolithic system to a microservice architecture and you’re responsible to build their MVP (minimum viable product)  .
-https://en.wikipedia.org/wiki/Minimum_viable_product
+This application is configured for Service Discovery and Configuration with . On launch, it will refuse to start if it is not able to connect to .
 
-Your challenge is:
-Build an application with those features described below, if you think the requirements aren’t detailed enough please leave a comment (portuguese or english) and proceed as best as you can.
+## Development
 
-You can choose as many features you think it’s necessary for the MVP,  IT’S NOT necessary build all the features, we strongly recommend to focus on quality over quantity, you’ll be evaluated by the quality of your solution.
+To start your application in the dev profile, simply run:
 
-If you think something is really necessary but you don’t have enough time to implement please at least explain how you would implement it.
+    ./mvnw
 
-## Tasks
+For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
 
-Your task is to develop one (or more, feel free) RESTful service(s) to:
-* Create a **Store**
-* Update a **Store** information
-* Retrieve a **Store** by parameters
-* Create an **Order** with items
-* Create a **Payment** for an **Order**
-* Retrieve an **Order** by parameters
-* Refund **Order** or any **Order Item**
+## Building for production
 
-Fork this repository and submit your code with partial commits.
+### Packaging as jar
 
-## Business Rules
+To build the final jar and optimize the backendchallenge application for production, run:
 
-* A **Store** is composed by name and address
-* An **Order** is composed by address, confirmation date and status
-* An **Order Item** is composed by description, unit price and quantity.
-* A **Payment** is composed by status, credit card number and payment date
-* An **Order** just should be refunded until ten days after confirmation and the payment is concluded.
+    ./mvnw -Pprod clean verify
 
-## Non functional requirements
+To ensure everything worked, run:
 
-Your service(s) must be resilient, fault tolerant, responsive. You should prepare it/them to be highly scalable as possible.
+    java -jar target/*.jar
 
-The process should be closest possible to "real-time", balancing your choices in order to achieve the expected
-scalability.
+Refer to [Using JHipster in production][] for more details.
 
-## Nice to have features (describe or implement):
-* Asynchronous processing
-* Database
-* Docker
-* AWS
-* Security
-* Swagger
-* Clean Code
+### Packaging as war
+
+To package your application as a war in order to deploy it to an application server, run:
+
+    ./mvnw -Pprod,war clean verify
+
+## Testing
+
+To launch your application's tests, run:
+
+    ./mvnw verify
+
+For more information, refer to the [Running tests page][].
+
+### Code quality
+
+Sonar is used to analyse code quality. You can start a local Sonar server (accessible on http://localhost:9001) with:
+
+```
+docker-compose -f src/main/docker/sonar.yml up -d
+```
+
+You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) or by using the maven plugin.
+
+Then, run a Sonar analysis:
+
+```
+./mvnw -Pprod clean verify sonar:sonar
+```
+
+If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
+
+```
+./mvnw initialize sonar:sonar
+```
+
+or
+
+For more information, refer to the [Code quality page][].
+
+## Using Docker to simplify development (optional)
+
+You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
+
+For example, to start a postgresql database in a docker container, run:
+
+    docker-compose -f src/main/docker/postgresql.yml up -d
+
+To stop it and remove the container, run:
+
+    docker-compose -f src/main/docker/postgresql.yml down
+
+You can also fully dockerize your application and all the services that it depends on.
+To achieve this, first build a docker image of your app by running:
+
+    ./mvnw -Pprod verify jib:dockerBuild
+
+Then run:
+
+    docker-compose -f src/main/docker/app.yml up -d
+
+For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
+
+## Continuous Integration (optional)
+
+To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
+
+[jhipster homepage and latest documentation]: https://www.jhipster.tech
+[jhipster 6.2.0 archive]: https://www.jhipster.tech/documentation-archive/v6.2.0
+[doing microservices with jhipster]: https://www.jhipster.tech/documentation-archive/v6.2.0/microservices-architecture/
+[using jhipster in development]: https://www.jhipster.tech/documentation-archive/v6.2.0/development/
+[using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/v6.2.0/docker-compose
+[using jhipster in production]: https://www.jhipster.tech/documentation-archive/v6.2.0/production/
+[running tests page]: https://www.jhipster.tech/documentation-archive/v6.2.0/running-tests/
+[code quality page]: https://www.jhipster.tech/documentation-archive/v6.2.0/code-quality/
+[setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v6.2.0/setting-up-ci/
