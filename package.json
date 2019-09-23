@@ -1,0 +1,17 @@
+{
+  "name": "backendchallenge",
+  "version": "0.0.0",
+  "description": "Description for backendchallenge",
+  "private": true,
+  "license": "UNLICENSED",
+  "cacheDirectories": [
+    "node_modules"
+  ],
+  "devDependencies": {
+    "generator-jhipster-kotlin": "1.1.0",
+    "generator-jhipster": "6.2.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  }
+}

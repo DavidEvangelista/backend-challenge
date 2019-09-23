@@ -1,0 +1,50 @@
+{
+  "generator-jhipster-kotlin": {
+    "promptValues": {
+      "packageName": "com.invillia.acme"
+    },
+    "jhipsterVersion": "6.2.0",
+    "applicationType": "microservice",
+    "baseName": "backendchallenge",
+    "packageName": "com.invillia.acme",
+    "packageFolder": "com/invillia/acme",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MmJiMjU5MGRkZjY2NzdmYTY5MjUxYjZlZmI2ZjQ1MGRmNDNlMDBhYjQwZWYwNWY2NWM1YjJhMWY1MjdlMzc3YzVlNWU0NDk3OTQwYWJhZDA0ZDFlNmM0ZjA1YTFjZGQ4MDY1Y2JmYTI3NzJhZjQ0ZWE4NzljOGRmNGY2NTdlMzQ="
+  },
+  "generator-jhipster": {
+    "jhipsterVersion": "6.2.0",
+    "applicationType": "microservice",
+    "baseName": "backendchallenge",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-kotlin",
+        "version": "1.1.0"
+      }
+    ],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [
+      {
+        "name": "generator-jhipster-kotlin",
+        "version": "1.1.0"
+      }
+    ],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
